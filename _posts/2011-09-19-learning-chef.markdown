@@ -8,16 +8,30 @@ title: Learning Chef
 
 ![chef logo](/images/chef.png "Chef")
 
+<span class="label success">New</span> 
+<span class="label warning">Warning</span>
+<span class="label important">Important</span>
+<span class="label notice">Notice</span>
+
 Chef is like Rails for systems integration. It's a framework designed
 to create infrastructure as code.
 
-Getting Started
----------------
+There are three parts to chef: server, client, and the command line
+tools. For the server we are going to use Hosted Chef which is free
+for up to 5 nodes. 
 
-First you need to create a `.chef/knife.rb` file in your project:
+First let's get the client set up.
+
+Client Setup
+------------
+
+Install the chef gem:
+
+    gem install chef
+
+Now create a `.chef/knife.rb` file in your project:
 
 {% highlight ruby %}
-
 current_dir = File.dirname(__FILE__)
 user = ENV['OPSCODE_USER']
 log_level                :info
@@ -41,3 +55,5 @@ knife[:region]            = "us-east-1"
 knife[:aws_image_id]      = "ami-81b275e8"
 {% endhighlight %}
 
+Notice the environment variables being called there? Yes, we need to
+set them up. 

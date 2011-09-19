@@ -57,3 +57,21 @@ knife[:aws_image_id]      = "ami-81b275e8"
 
 Notice the environment variables being called there? Yes, we need to
 set them up. 
+
+Setting Up Our Environment
+--------------------------
+
+[This is a pretty good
+guide](http://help.opscode.com/kb/start/2-setting-up-your-user-environment)
+on signing up with Opscode for Hosted Chef and downloading the required `.pem`
+files.
+
+So now that you've set up your user and organization on Hosted Chef,
+you need to add them to your environment. `.bashrc` should be
+a good place to put this:
+
+    export ORGNAME=your_org
+    export OPSCODE_USER=your_name
+    export AWS_ACCESS_KEY_ID=your_key
+    export AWS_SECRET_ACCESS_KEY=your_secret_key
+    export AWS_SSH_KEY_ID=name_of_your_amazon_pub_key_file

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Chef Related Links
+categories:
+- Chef
 ---
 
 {{ page.title }}

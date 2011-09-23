@@ -27,7 +27,7 @@ Install the chef gem:
 
     gem install chef
 
-Now create a `.chef/knife.rb` file in your project:
+Now create a `.chef/knife.rb` file in your project's root directory:
 
 {% highlight ruby %}
 current_dir = File.dirname(__FILE__)
@@ -191,7 +191,7 @@ make it look like this:
     }
 
 <span class="label important">Important</span> Be sure to change
-`your_name` to the user name you actually want to use and paste the
+`your_name` to the user name you actually want to use and paste your
 user's public SSH key into the ssh_keys value.
 
 We'll need another data bag for our application,
@@ -247,7 +247,7 @@ First install some dependencies:
 
     gem install net-ssh net-ssh-multi fog highline --no-rdoc --no-ri
 
-Now you should install the [knife-ec2 gem](https://github.com/opscode/knife-ec2) in order to provision EC2
+Now install the [knife-ec2 gem](https://github.com/opscode/knife-ec2) in order to provision EC2
 instances:
 
     gem install knife-ec2
@@ -307,6 +307,14 @@ EOP
 {% endhighlight %}
 
 This script will run as soon as the server is up and compile ruby from source.
+
+<span class="label">Note</span> Why not use `rvm`? [Opscode doesn't
+recommend
+it.](http://wiki.opscode.com/display/chef/Troubleshooting+and+Technical+FAQ#TroubleshootingandTechnicalFAQ-MayIuseRVMtoinstallRubyand%2ForRubyGemsthatthechefclientrunsunder%3F)
+Seems it causes PATH errors. It's not too bad though, because normally
+one ruby and gemset is fine for deploying a single-app server. There
+are [solutions](https://github.com/fnichol/chef-rvm) if you really
+want to use `rvm`.
 
 Launch Instance
 ---------------
